@@ -1,4 +1,4 @@
-package de.jauni.axFriends;
+package de.jauni.axfriends;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
