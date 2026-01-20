@@ -1,0 +1,4 @@
+name: AxFriends
+version: '1.0.0'
+main: de.jauni.axFriends.AxFriends
+api-version: '1.21'
