@@ -2,3 +2,6 @@ name: AxFriends
 version: '1.0.0'
 main: de.jauni.axfriends.AxFriends
 api-version: '1.21'
+commands:
+  addfriend:
+  listfriends:
