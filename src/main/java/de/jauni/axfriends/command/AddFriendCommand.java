@@ -25,8 +25,8 @@ public class AddFriendCommand implements CommandExecutor {
         Player targetPlayer = Bukkit.getPlayer(args[0]);
         boolean state = reference.getPlayerManager().addFriend(sourcePlayer, targetPlayer);
         if (state) {
-            sourcePlayer.sendMessage("Du bist nun mit" + " " + targetPlayer.getName() + " " + "befreundet.");
-            targetPlayer.sendMessage("Du bist nun mit" + " " + sourcePlayer.getName() + " " + "befreundet.");
+            sourcePlayer.sendMessage("Du hast" + " " + targetPlayer.getName() + " " + "eine Freundschaftsanfrage geschickt.");
+            targetPlayer.sendMessage(sourcePlayer.getName() + " " + "hat dir eine Freundschaftsanfrage geschickt.");
             return true;
         }
         sourcePlayer.sendMessage("Du bist bereits mit" + " " + targetPlayer.getName() + " " + "befreundet.");

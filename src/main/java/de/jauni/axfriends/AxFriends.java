@@ -40,7 +40,9 @@ public final class AxFriends extends JavaPlugin {
         }
         getCommand("addfriend").setExecutor(new de.jauni.axfriends.command.AddFriendCommand(this));
         getCommand("listfriends").setExecutor(new de.jauni.axfriends.command.ListFriendsCommand(this));
-        getCommand("removeFriend").setExecutor(new de.jauni.axfriends.command.RemoveFriendCommand(this));
+        getCommand("removefriend").setExecutor(new de.jauni.axfriends.command.RemoveFriendCommand(this));
+        getCommand("acceptfriendrequest").setExecutor(new de.jauni.axfriends.command.AcceptFriendRequestCommand(this));
+        getCommand("denyfriendrequest").setExecutor(new de.jauni.axfriends.command.DenyFriendRequestCommand(this));
     }
 
     @Override

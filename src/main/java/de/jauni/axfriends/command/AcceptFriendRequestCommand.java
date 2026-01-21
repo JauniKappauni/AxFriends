@@ -8,10 +8,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class RemoveFriendCommand implements CommandExecutor {
+public class AcceptFriendRequestCommand implements CommandExecutor {
     AxFriends reference;
 
-    public RemoveFriendCommand(AxFriends reference) {
+    public AcceptFriendRequestCommand(AxFriends reference) {
         this.reference = reference;
     }
 
@@ -23,13 +23,13 @@ public class RemoveFriendCommand implements CommandExecutor {
         }
         Player sourcePlayer = (Player) sender;
         Player targetPlayer = Bukkit.getPlayer(args[0]);
-        boolean state = reference.getPlayerManager().removeFriend(sourcePlayer, targetPlayer);
+        boolean state = reference.getPlayerManager().acceptFriendRequest(sourcePlayer, targetPlayer);
         if (state) {
-            sourcePlayer.sendMessage("Du hast" + " " + targetPlayer.getName() + " " + "aus deiner Freundesliste entfernt.");
-            targetPlayer.sendMessage(sourcePlayer.getName() + " " + "hat die Freundschaft mit dir aufgelöst.");
+            targetPlayer.sendMessage(sourcePlayer.getName() + " " + "hat deine Freundschaftsanfrage angenommen.");
+            sourcePlayer.sendMessage("Du hast die Freundschaftsanfrage von" + " " + targetPlayer.getName() + " " + "angenommen");
             return true;
         }
-        sourcePlayer.sendMessage("Du bist nicht mit" + " " + targetPlayer.getName() + " " + "befreundet.");
+        sourcePlayer.sendMessage("Es existieren keine ausstehenden Freundschaftsanfragen.");
         return true;
     }
 }
