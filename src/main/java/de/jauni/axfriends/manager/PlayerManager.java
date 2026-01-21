@@ -46,4 +46,17 @@ public class PlayerManager {
         }
         return friends;
     }
+
+    public boolean removeFriend(Player sourcePlayer, Player targetPlayer) {
+        try (Connection conn = reference.getDatabaseManager().getConnection()) {
+            try (PreparedStatement ps = conn.prepareStatement("DELETE FROM friends WHERE player_one = ? AND player_two = ?")) {
+                ps.setString(1, sourcePlayer.getUniqueId().toString());
+                ps.setString(2, targetPlayer.getUniqueId().toString());
+                ps.executeUpdate();
+                return true;
+            }
+        } catch (SQLException e) {
+            return false;
+        }
+    }
 }
